@@ -45,7 +45,11 @@ def publish_repo_to_subdirectory(destrepo,subdirectory,branch,buildnumber) {
    sh "cd       ../builds/build${buildnumber}/${repodir}; git checkout -b ${branch}"
    sh "mkdir -p ../builds/build${buildnumber}/${repodir}/${subdirectory}"
    sh "cp -r *  ../builds/build${buildnumber}/${repodir}/${subdirectory}"
+<<<<<<< HEAD
    sh "cd       ../builds/build${buildnumber}/${repodir}; git add .; git commit -m 'Jenkins build $buildnumber'; git pull origin master; git push origin ${branch}"
+=======
+   sh "cd       ../builds/build${buildnumber}/${repodir}; git add .; git commit -m 'Jenkins build $buildnumber'; git pull --rebase; git push origin ${branch}"
+>>>>>>> be23825e3525a9bfe41739cb4b999790a2c3ff45
    sh "rm -rf   ../builds/build${buildnumber}/${repodir}"
 }
 

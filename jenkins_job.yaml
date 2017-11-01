@@ -1,0 +1,10 @@
+- job:
+    name: robot-framework-build
+    project-type: pipeline
+    sandbox: true
+    pipeline-scm:
+      scm:
+        - git:
+            url: https://github.com/ovbabkin/rf_build_automation.git
+            clean: true
+      script-path: Jenkinsfile

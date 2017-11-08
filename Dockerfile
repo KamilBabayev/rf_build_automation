@@ -10,6 +10,7 @@ RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/ap
 	&& python3 -m ensurepip && rm -r /usr/lib/python*/ensurepip \
 	&& pip3 install --upgrade pip setuptools \
 	&& apk add --no-cache --virtual .build-deps@testing python3-dev make cmake clang clang-dev g++ linux-headers libtbb@testing libtbb-dev@testing openblas-dev freetype-dev \
+    && pip install pymongo xmltodict \
     && wget  https://raw.githubusercontent.com/KamilBabayev/bell_robot/json_output/writer/json_writer.py \
  -O /usr/lib/python2.7/site-packages/robot/writer/json_writer.py \
     && echo "from .json_writer import create_json_output" >> /usr/lib/python2.7/site-packages/robot/writer/__init__.py \
